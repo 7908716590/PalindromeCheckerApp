@@ -1,23 +1,34 @@
+/**
+ * MAIN CLASS – UseCase2PalindromeCheckerApp
+ *
+ * Use Case 2: Hardcoded Palindrome Validation
+ * @author Developer
+ * @version 2.0
+ */
 
 public class PalindromeCheckerApp {
 
-    //* Application entry point.
-
     public static void main(String[] args) {
 
-        // Application Name
-        String appName = "Palindrome Checker Management System";
+        // Hardcoded string
+        String word = "madam";
 
-        // Application Version
-        String version = "Version 1.0";
+        // Flag to track palindrome status
+        boolean isPalindrome = true;
 
-        // Welcome Message
-        System.out.println("==============================================");
-        System.out.println(" Welcome to the " + appName);
-        System.out.println(" " + version);
-        System.out.println("==============================================");
+        // Compare characters from both ends
+        for (int i = 0; i < word.length() / 2; i++) {
+            if (word.charAt(i) != word.charAt(word.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
 
-        // Application flow continues (future use cases)
-        System.out.println("System is ready.");
+        // Display result
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome.");
+        } else {
+            System.out.println(word + " is NOT a Palindrome.");
+        }
     }
 }
