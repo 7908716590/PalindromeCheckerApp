@@ -13,6 +13,7 @@ public class PalindromeCheckerApp {
         }
     }
 
+
     /**
      * Converts string to singly linked list
      */
