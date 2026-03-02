@@ -1,23 +1,58 @@
-🎯 Objective
+Use Case Title
 
-To build a Java console application that checks whether a given input is a palindrome, developed step-by-step using use cases.
+UC8: Palindrome Validation using Singly Linked List
 
-🔄 Project Procedure (What I Did)
+Use Case Objective
 
-Defined the project objective.
+To validate whether a given string is a palindrome by converting it into a Singly Linked List, reversing the second half in-place, and comparing both halves using an efficient algorithm.
 
-Broke the system into use cases.
+Use Case Description
 
-Implemented Use Case 1:
+This use case demonstrates how a palindrome check can be implemented using a dynamic data structure (Singly Linked List) instead of relying on built-in string reversal methods.
 
-Created the main class.
+The solution uses:
 
-Implemented the main() method.
+Fast and Slow pointer technique to find the middle
 
-Displayed welcome message and version.
+In-place reversal of the second half
 
-Structured the project for future expansion (input + palindrome logic).
+Node-by-node comparison for validation
 
-🌊 Project Flow
+Use Case Flow
+Step 1: Input
 
-Start → JVM calls main() → Display Welcome Message → Display Version → Ready for Next Use Case → End / Continue
+Accept a string from the user.
+
+Step 2: Convert String to Linked List
+
+Each character of the string is converted into a node.
+
+Nodes are connected sequentially to form a singly linked list.
+
+Step 3: Find Middle of the List
+
+Use Fast and Slow pointer technique:
+
+Slow pointer moves one step.
+
+Fast pointer moves two steps.
+
+When fast reaches the end, slow is at the middle.
+
+Step 4: Reverse Second Half (In-Place)
+
+Reverse the linked list starting from the middle.
+
+No extra memory is used.
+
+Step 5: Compare Both Halves
+
+Compare first half and reversed second half node-by-node.
+
+If all characters match → Palindrome.
+
+If mismatch found → Not a palindrome.
+
+Step 6: Display Result
+
+Print whether the string is a palindrome or not.
