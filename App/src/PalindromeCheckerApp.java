@@ -1,8 +1,12 @@
-
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
 
+    /**
+     * Application entry point for UC11.
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -10,25 +14,50 @@ public class PalindromeCheckerApp {
         System.out.print("Input: ");
         String input = scanner.nextLine();
 
-        // Normalize string
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        // Create service object
+        PalindromeService service = new PalindromeService();
 
-        boolean isPalindrome = true;
+        boolean result = service.checkPalindrome(input);
+
+        System.out.println("Is Palindrome? : " + result);
+
+        scanner.close();
+    }
+}
+
+/**
+ * Service class that contains palindrome logic.
+ */
+class PalindromeService {
+
+    /**
+     * Checks whether the input string is a palindrome.
+     *
+     * @param input Input string
+     * @return true if palindrome, false otherwise
+     */
+    public boolean checkPalindrome(String input) {
+
+        if (input == null) {
+            return false;
+        }
+
+        // Normalize string (remove symbols and convert to lowercase)
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "")
+                .toLowerCase();
+
+        int length = normalized.length();
 
         // Compare characters from both ends
-        for (int i = 0; i < normalized.length() / 2; i++) {
+        for (int i = 0; i < length / 2; i++) {
 
-            // Compare symmetric characters
             if (normalized.charAt(i) !=
-                    normalized.charAt(normalized.length() - 1 - i)) {
+                    normalized.charAt(length - 1 - i)) {
 
-                isPalindrome = false;
-                break;
+                return false;
             }
         }
 
-        System.out.println("Is Palindrome? : " + isPalindrome);
-
-        scanner.close();
+        return true;
     }
 }
